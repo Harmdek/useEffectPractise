@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import AdviceButton from "./components/AdviceButton";
 
 function App() {
   const [state, setState] = useState({
@@ -73,12 +74,17 @@ function App() {
         </div>
 
         <div className="buttons">
-          <button
-            className="button"
+          <AdviceButton
+            icon="🧀"
+            buttonText="Cheese"
             onClick={() => updateResourceType("cheese")}
-          >
-            <span>🧀</span>Cheese
-          </button>
+          />
+          <AdviceButton
+            icon="❤️"
+            buttonText="Love"
+            onClick={() => updateResourceType("love")}
+          />
+
           <button className="button" onClick={() => updateResourceType("love")}>
             <span>❤️</span>Love
           </button>
