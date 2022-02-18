@@ -1,55 +1,10 @@
-import { useState, useEffect } from "react";
 import "./App.css";
 import AdviceButton from "./components/AdviceButton";
+import useAdvice from "./hooks/useAdvice";
 
 function App() {
-  const [state, setState] = useState({
-    resourceType: "cheese",
-    items: [],
-    loader: true,
-    error: null,
-  });
-
-  useEffect(() => {
-    const controller = new AbortController();
-    fetch(
-      `https://deelay.me/2000/https://api.adviceslip.com/advice/search/${state.resourceType}`,
-      { signal: controller.signal }
-    )
-      .then((response) => response.json())
-      .then((json) => {
-        if (!json.slips) {
-          return setState({
-            ...state,
-            loader: false,
-            error: json.message.text,
-          });
-        }
-        setState({
-          ...state,
-          items: json,
-          loader: false,
-        });
-      })
-      .catch((error) => {
-        return setState({
-          ...state,
-          loader: false,
-          error: error.message,
-        });
-      });
-
-    return () => controller.abort();
-  }, [state.resourceType]);
-
-  function updateResourceType(resourceType) {
-    setState({
-      resourceType: resourceType,
-      items: [],
-      loader: true,
-      error: null,
-    });
-  }
+  const { loader, error, items, resourceType, updateResourceType } =
+    useAdvice();
 
   return (
     <div className="wrapper">
@@ -130,14 +85,14 @@ function App() {
           <h2>
             Here is some solid advice about
             <br />
-            <span>{state.resourceType}</span>
+            <span>{resourceType}</span>
           </h2>
 
           <div className="results">
-            {state.loader && "LOADING..."}
-            {state.items.slips && (
+            {loader && "LOADING..."}
+            {items.slips && (
               <ul className="outputList">
-                {state.items.slips.map((item) => {
+                {items.slips.map((item) => {
                   return (
                     <li key={item.id}>
                       {JSON.stringify(item.advice).replace(/['"]+/g, "")}
@@ -146,7 +101,7 @@ function App() {
                 })}
               </ul>
             )}
-            {state.error && <p>{state.error}</p>}
+            {error && <p>{error}</p>}
           </div>
         </div>
       </div>
