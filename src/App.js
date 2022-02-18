@@ -2,9 +2,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
-  // const [resourceType, setResourceType] = useState("cheese");
-  // const [items, setItems] = useState([]);
-  // const [loader, setLoader] = useState(false);
   const [state, setState] = useState({
     resourceType: "cheese",
     items: [],
@@ -131,11 +128,10 @@ function App() {
           </h2>
 
           <div className="results">
-            {state.loader ? (
-              "LOADING..."
-            ) : !state.error ? (
+            {state.loader && "LOADING..."}
+            {state.items.slips && (
               <ul className="outputList">
-                {state.items.slips?.map((item) => {
+                {state.items.slips.map((item) => {
                   return (
                     <li key={item.id}>
                       {JSON.stringify(item.advice).replace(/['"]+/g, "")}
@@ -143,9 +139,8 @@ function App() {
                   );
                 })}
               </ul>
-            ) : (
-              <p>{state.error}</p>
             )}
+            {state.error && <p>{state.error}</p>}
           </div>
         </div>
       </div>
