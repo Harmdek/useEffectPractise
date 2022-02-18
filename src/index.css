@@ -1,13 +1,210 @@
 body {
+  background-color: #F0F4F7;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 50px 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Work Sans', sans-serif;
+  margin: 0;
+} h1 {
+
+} h2 {
+  
+} h3 {
+  
+} h4 {
+  
+} h5 {
+  
+} h6 {
+  
 }
+
+p, a, span, ul, li, select {
+  font-family: 'Work Sans', sans-serif;
+  margin:  0;
+}
+#root {
+  min-height: 100vh;
+}
+
+.wrapper {
+  max-width: 1070px;
+  width: 100%;
+  margin:  auto; 
+
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+}
+
+.wrapper .head {
+  background-color: #9DAEBB;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 15px;
+
+}
+
+.wrapper .head .dots {
+  box-sizing: border-box;
+}
+
+.wrapper .head .dots span {
+  background-color: #8E9EAC;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.wrapper .head .dots span.red {
+  background-color: #FF5952;
+}
+.wrapper .head .dots span.orange {
+  background-color: #E6C028;
+}
+.wrapper .head .dots span.green {
+  background-color: #52C22B;
+}
+
+.wrapper .head .colorScheme select{
+  border: none;
+  background-color: transparent;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.wrapper .head .colorScheme select:focus{
+  border:  none;
+  outline: none;
+}
+
+
+
+
+
+
+.wrapper .main {
+  padding: 50px 50px;
+  box-sizing: border-box;
+}
+
+.wrapper .main .title {
+  margin-bottom: 55px;
+
+}
+.wrapper .main .title h1 {
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 50px;
+}
+
+
+.wrapper .main .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: -50px -25px 50px;
+
+}
+.wrapper .main .buttons button {
+  box-sizing: border-box;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  width: calc(100% / 4 - 50px);
+  margin: 55px 25px 0 25px;
+  transition: .3s ease all;
+  background-color: #6557F5;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 5px;
+
+  font-size: 22px;
+  font-weight: 100;
+}
+.wrapper .main .buttons button:hover {
+  background-color: #4c42ac;
+}
+
+.wrapper .main .buttons button span {
+  margin-right: 10px;
+}
+
+
+.wrapper .main .content {
+
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.wrapper .main .content h2 {
+  font-size: 35px;
+  font-weight: 500;
+}
+.wrapper .main .content h2 span {
+  position: relative;
+  display: inline-block;
+  margin-top: 60px;
+  text-transform: lowercase;
+  padding: 0 10px;
+}
+.wrapper .main .content h2 span::before {
+  content: '';
+  width: 7px;
+  height: 1px;
+  background-color: black;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.wrapper .main .content h2 span::after {
+  content: '';
+  width: 7px;
+  height: 1px;
+  background-color: black;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
+.wrapper .main .content h2 span::first-letter {
+   text-transform: uppercase;
+}
+
+.wrapper .main .content .results ul.outputList {
+  list-style-type: auto;
+  padding: 0;
+  text-align: left;
+  margin-top: 40px;
+}
+.wrapper .main .content .results ul.outputList li {
+  margin-top:  20px;
+  font-size: 24px;
+  font-weight: 500;
+}
+.wrapper .main .content .results ul.outputList li:first-child {
+  margin-top:  20px;
+}
+
+
+
+
+
+
+
+
+
+
+
